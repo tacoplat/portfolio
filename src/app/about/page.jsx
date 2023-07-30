@@ -26,14 +26,13 @@ const LandingText = styled(Typography)({
   fontSize: 28,
 });
 
-export default function Projects() {
+export default function About() {
   const { isSmallScreen, theme } = useContext(GlobalPortfolioContext);
 
   return (
     <MainContent isSmallScreen={isSmallScreen}>
       <CurrentRouteBreadcrumbs theme={theme} />
-      <LandingText variant="h5">This is what I've been working on.</LandingText>
-      <ProjectViewer />
+      <LandingText variant="h5">A little bit about me.</LandingText>
     </MainContent>
   );
 }

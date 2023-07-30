@@ -6,7 +6,6 @@ import { Box, Typography } from "@mui/material";
 import { noSelect } from "@/components/styles/utils";
 import { GlobalPortfolioContext } from "@/components/global/GlobalPortfolioContext";
 import CurrentRouteBreadcrumbs from "@/components/routing/CurrentRouteBreadcrumbs";
-import ProjectViewer from "@/components/projectViewer/ProjectViewer";
 
 const MainContent = styled(Box)(({ isSmallScreen }) => ({
   height: isSmallScreen ? 600 : 800,
@@ -26,14 +25,15 @@ const LandingText = styled(Typography)({
   fontSize: 28,
 });
 
-export default function Projects() {
+export default function About() {
   const { isSmallScreen, theme } = useContext(GlobalPortfolioContext);
 
   return (
     <MainContent isSmallScreen={isSmallScreen}>
       <CurrentRouteBreadcrumbs theme={theme} />
-      <LandingText variant="h5">This is what I've been working on.</LandingText>
-      <ProjectViewer />
+      <LandingText variant="h5">
+        Any questions or concerns? Let me know.
+      </LandingText>
     </MainContent>
   );
 }

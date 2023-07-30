@@ -19,21 +19,25 @@ export const projects = [
     description: "Single-player Tetris clone with different game modes.",
   },
   {
-    name: "tetris",
-    displayName: "Tetris Clone",
+    name: "cage-discord-bot",
+    displayName: "CAGE Discord Bot",
     id: 2,
-    skills: ["Java", "JavaFX", "Scenebuilder", "GitHub"],
+    skills: ["Node", "Discord.js", "GitHub"],
     img: portfolio,
-    description: "Single-player Tetris clone with different game modes.",
+    description:
+      "Discord bot for the UWaterloo Class of 2026 Civil, Architectural, Geological, and Environmental Engineering class server.",
   },
+
   {
-    name: "tetris",
-    displayName: "Tetris Clone",
-    id: 2,
-    skills: ["Java", "JavaFX", "Scenebuilder", "GitHub"],
+    name: "course-tracker",
+    displayName: "Course Tracker",
+    id: 3,
+    skills: ["React", "NextJS", "Material UI", "GitHub"],
     img: portfolio,
-    description: "Single-player Tetris clone with different game modes.",
+    description:
+      "Simple react app to keep track of deliverables and course progress.",
   },
+
   {
     name: "tetris",
     displayName: "Tetris Clone",
