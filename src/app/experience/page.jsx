@@ -11,6 +11,7 @@ import { LandingText } from "@/components/styles/typography";
 import { MainContent } from "@/components/styles/common";
 import { colors } from "@/components/styles/colors";
 import DownloadIcon from "@mui/icons-material/Download";
+import RedoIcon from "@mui/icons-material/Redo";
 
 const ExperienceWrapper = styled(Box)(({ isSmallScreen }) => {
   const defaultStyles = {
@@ -117,12 +118,18 @@ export default function Experience() {
       </LandingText>
       <Box>
         <ActionWrapper>
-          <StyledButton theme={theme} endIcon={<DownloadIcon />}>
+          <StyledButton
+            theme={theme}
+            component="a"
+            href="/azhen-resume.pdf"
+            endIcon={<DownloadIcon />}
+          >
             Download resumé
           </StyledButton>
           <JumpToWrapper theme={theme} isSmallScreen={isSmallScreen}>
             <StyledButton
               theme={theme}
+              endIcon={<RedoIcon />}
               onClick={() => {
                 setJumpToActive(!jumpToActive);
               }}

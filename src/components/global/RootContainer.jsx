@@ -43,7 +43,7 @@ const IconLinkWrapper = styled("a")(({ theme }) => ({
 export default function RootContainer({ children }) {
   const [dark, setDark] = useState(false);
   const [screenWidth, setScreenWidth] = useState(
-    typeof window !== "undefined" ? window.innerWidth : null
+window.innerWidth
   );
   const [educationItems, setEducationItems] = useState([]);
   const [workItems, setWorkItems] = useState([]);
