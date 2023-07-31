@@ -91,6 +91,8 @@ const Title = styled(Typography)({
   fontWeight: 600,
 });
 
+const THUMBNAIL_FALLBACK = "/assets/no-thumbnail.png";
+
 export default function ProjectTile({ project, isLast }) {
   const { isSmallScreen, theme } = useContext(GlobalPortfolioContext);
 
@@ -102,7 +104,11 @@ export default function ProjectTile({ project, isLast }) {
         subheader={<ChipDisplay project={project} />}
       />
       <StyledCardMedia theme={theme}>
-        <Image src={project.img} width={260} height={260} />
+        <Image
+          src={project.img || THUMBNAIL_FALLBACK}
+          width={260}
+          height={260}
+        />
       </StyledCardMedia>
     </StyledCard>
   );

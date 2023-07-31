@@ -13,7 +13,7 @@ export const projects = [
     displayName: "Tetris Clone",
     id: 2,
     skills: ["Java", "JavaFX", "Scenebuilder", "GitHub"],
-    img: "/assets/portfolio.png",
+    img: "",
     description: "Single-player Tetris clone with different game modes.",
   },
   {
@@ -31,7 +31,7 @@ export const projects = [
     displayName: "Course Tracker",
     id: 4,
     skills: ["React", "NextJS", "Material UI", "GitHub"],
-    img: "/assets/portfolio.png",
+    img: "",
     description:
       "Simple react app to keep track of deliverables and course progress.",
   },
@@ -41,7 +41,7 @@ export const projects = [
     displayName: "Acrylic LED Sign",
     id: 5,
     skills: ["Solidworks", "3D Printing", "AutoCAD", "Laser Cutting"],
-    img: "/assets/portfolio.png",
+    img: "",
     description: "Placeholder card for an upcoming project.",
   },
   {
@@ -49,7 +49,7 @@ export const projects = [
     displayName: "Generic Project",
     id: 6,
     skills: ["Skill 1", "Skill 2", "Skill 3"],
-    img: "/assets/portfolio.png",
+    img: "",
     description: "Placeholder card for an upcoming project.",
   },
 ];
