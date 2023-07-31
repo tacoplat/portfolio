@@ -21,7 +21,7 @@ export const projects = [
   {
     name: "cage-discord-bot",
     displayName: "CAGE Discord Bot",
-    id: 2,
+    id: 3,
     skills: ["Node", "Discord.js", "GitHub"],
     img: portfolio,
     description:
@@ -31,7 +31,7 @@ export const projects = [
   {
     name: "course-tracker",
     displayName: "Course Tracker",
-    id: 3,
+    id: 4,
     skills: ["React", "NextJS", "Material UI", "GitHub"],
     img: portfolio,
     description:
@@ -39,19 +39,19 @@ export const projects = [
   },
 
   {
-    name: "tetris",
-    displayName: "Tetris Clone",
-    id: 2,
-    skills: ["Java", "JavaFX", "Scenebuilder", "GitHub"],
+    name: "generic1",
+    displayName: "Generic Project",
+    id: 5,
+    skills: ["Skill 1", "Skill 2", "Skill 3"],
     img: portfolio,
-    description: "Single-player Tetris clone with different game modes.",
+    description: "Placeholder card for an upcoming project.",
   },
   {
-    name: "tetris",
-    displayName: "Tetris Clone",
-    id: 2,
-    skills: ["Java", "JavaFX", "Scenebuilder", "GitHub"],
+    name: "generic2",
+    displayName: "Generic Project",
+    id: 6,
+    skills: ["Skill 1", "Skill 2", "Skill 3"],
     img: portfolio,
-    description: "Single-player Tetris clone with different game modes.",
+    description: "Placeholder card for an upcoming project.",
   },
 ];

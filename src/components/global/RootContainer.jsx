@@ -2,10 +2,13 @@
 
 import { useEffect, useMemo, useState } from "react";
 import styled from "@emotion/styled";
-import { Box } from "@mui/material";
+import { Box, SvgIcon } from "@mui/material";
 import { GlobalPortfolioContext } from "./GlobalPortfolioContext";
 import { DarkModeToggle } from "./DarkModeToggle";
 import { colors } from "../styles/colors";
+import { education, volunteer, work } from "../experience/mockExperience";
+import GitHubIcon from "@mui/icons-material/GitHub";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
 
 export const StyledBox = styled(Box)(({ theme }) => ({
   height: "100vh",
@@ -17,9 +20,34 @@ export const StyledBox = styled(Box)(({ theme }) => ({
   color: colors[theme].textColorPrimary,
 }));
 
+const UtilityContainer = styled(Box)({
+  display: "flex",
+  alignItems: "center",
+  gap: 16,
+  position: "absolute",
+  left: 32,
+  bottom: 32,
+});
+
+const IconLinkWrapper = styled("a")(({ theme }) => ({
+  display: "flex",
+  alignItems: "center",
+  opacity: 0.25,
+  transition: "opacity 150ms ease-in",
+  color: colors[theme].textColorPrimary,
+  "&:hover": {
+    opacity: 1,
+  },
+}));
+
 export default function RootContainer({ children }) {
   const [dark, setDark] = useState(false);
-  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+  const [screenWidth, setScreenWidth] = useState(
+    typeof window !== "undefined" ? window.innerWidth : null
+  );
+  const [educationItems, setEducationItems] = useState([]);
+  const [workItems, setWorkItems] = useState([]);
+  const [volunteerItems, setVolunteerItems] = useState([]);
 
   const handleResize = () => {
     setScreenWidth(window.innerWidth);
@@ -31,6 +59,9 @@ export default function RootContainer({ children }) {
 
   useEffect(() => {
     window.addEventListener("resize", handleResize);
+    setEducationItems(education.reverse());
+    setWorkItems(work.reverse());
+    setVolunteerItems(volunteer.reverse());
     return () => {
       window.removeEventListener("resize", handleResize);
     };
@@ -43,14 +74,25 @@ export default function RootContainer({ children }) {
     () => ({
       isSmallScreen,
       theme,
+      educationItems,
+      workItems,
+      volunteerItems,
     }),
-    [dark, screenWidth]
+    [dark, screenWidth, educationItems, workItems, volunteerItems]
   );
 
   return (
     <GlobalPortfolioContext.Provider value={contextValues}>
       <StyledBox theme={theme}>
-        <DarkModeToggle theme={theme} onClick={toggleTheme} />
+        <UtilityContainer>
+          <DarkModeToggle theme={theme} onClick={toggleTheme} />
+          <IconLinkWrapper theme={theme} href="https://github.com/tacoplat/">
+            <GitHubIcon />
+          </IconLinkWrapper>
+          <IconLinkWrapper theme={theme} href="https://linkedin.com/in/a3zhen">
+            <LinkedInIcon />
+          </IconLinkWrapper>
+        </UtilityContainer>
         {children}
       </StyledBox>
     </GlobalPortfolioContext.Provider>

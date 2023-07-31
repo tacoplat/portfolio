@@ -6,18 +6,7 @@ import { projects } from "./mockProjects";
 import ProjectTile from "./ProjectTile";
 import { useContext, useEffect, useRef } from "react";
 import { GlobalPortfolioContext } from "../global/GlobalPortfolioContext";
-
-const scrollbarStyles = {
-  "&::-webkit-scrollbar": {
-    height: "0.8rem",
-    width: "0.8rem",
-  },
-  "&::-webkit-scrollbar-thumb": {
-    backgroundColor: "rgba(0,0,0,.1)",
-    outline: "none",
-    borderRadius: "1rem",
-  },
-};
+import { scrollbarStyles } from "../styles/utils";
 
 const Viewer = styled(Box)(({ isSmallScreen }) => {
   const defaultStyles = {
@@ -32,10 +21,14 @@ const Viewer = styled(Box)(({ isSmallScreen }) => {
     overflowX: "auto",
     scrollSnapType: "both mandatory",
     scrollBehavior: "smooth",
-    padding: isSmallScreen ? 0 : "0 0 32px 0",
+    padding: isSmallScreen ? 0 : "0 0 52px 0",
   };
   if (!isSmallScreen) return { ...defaultStyles, ...scrollbarStyles };
   return { ...defaultStyles };
+});
+
+const ErrorBox = styled(Box)({
+  height: 400,
 });
 
 function useHorizontalScroll(deps) {
@@ -55,19 +48,32 @@ function useHorizontalScroll(deps) {
   return elRef;
 }
 
-export default function ProjectViewer() {
-  const { isSmallScreen, theme } = useContext(GlobalPortfolioContext);
+const filterQueryPredicate = (query, project) => {
+  const queryLower = query.toLowerCase();
+  return (
+    project.displayName.toLowerCase().includes(queryLower) ||
+    `${project.id}`.includes(queryLower) ||
+    project.skills.join("").toLowerCase().includes(queryLower)
+  );
+};
+
+export default function ProjectViewer({ projectQuery }) {
+  const { isSmallScreen } = useContext(GlobalPortfolioContext);
 
   const viewerScroll = useHorizontalScroll([isSmallScreen]);
+  const filteredProjects = projects.filter((project) =>
+    filterQueryPredicate(projectQuery, project)
+  );
 
   return (
     <Viewer
       isSmallScreen={isSmallScreen}
       ref={isSmallScreen ? null : viewerScroll}
     >
-      {projects.map((project, index) => (
+      {filteredProjects.map((project, index) => (
         <ProjectTile project={project} isLast={index === projects.length - 1} />
       ))}
+      {!filteredProjects.length ? <ErrorBox>No projects found</ErrorBox> : null}
     </Viewer>
   );
 }

@@ -4,11 +4,8 @@ import styled from "@emotion/styled";
 
 const Indicator = styled(Box)(({ theme }) => {
   return {
-    width: 16,
-    height: 16,
-    left: 32,
-    bottom: 32,
-    position: "absolute",
+    width: 18,
+    height: 18,
     "&:hover": {
       opacity: 1,
       backgroundColor: colors[theme].backgroundInverted,
