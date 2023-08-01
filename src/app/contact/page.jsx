@@ -14,7 +14,7 @@ export default function About() {
     <MainContent isSmallScreen={isSmallScreen}>
       <CurrentRouteBreadcrumbs theme={theme} />
       <LandingText variant="h5" isSmallScreen={isSmallScreen}>
-        Questions or concerns? Let me know.
+        Questions or concerns?{isSmallScreen ? <br /> : null} Let me know.
       </LandingText>
       <ContactForm />
     </MainContent>

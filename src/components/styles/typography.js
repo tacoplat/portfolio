@@ -10,6 +10,6 @@ export const LandingText = styled(Typography)(({ isSmallScreen }) => ({
   justifyContent: isSmallScreen ? "center" : "start",
   padding: isSmallScreen ? "0px 16px" : 0,
   width: isSmallScreen ? "100%" : "auto",
-  maxWidth: isSmallScreen ? "90%" : "auto",
+  maxWidth: isSmallScreen ? "100%" : "auto",
   padding: isSmallScreen ? "0 2rem" : 0,
 }));
