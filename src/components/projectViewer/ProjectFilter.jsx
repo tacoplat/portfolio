@@ -7,6 +7,7 @@ import { GlobalPortfolioContext } from "../global/GlobalPortfolioContext";
 import { colors } from "../styles/colors";
 import { noSelect } from "../styles/utils";
 import HighlightOffOutlinedIcon from "@mui/icons-material/HighlightOffOutlined";
+import { StyledLabel } from "../contactForm/formComponents";
 
 const ProjectFilterWrapper = styled(Box)({
   display: "flex",
@@ -21,19 +22,12 @@ const ProjectFilterWrapper = styled(Box)({
 const LabelFieldWrapper = styled(Box)({
   display: "flex",
   flexDirection: "column",
-  rowGap: 4,
+  rowGap: 6,
 });
 
-const StyledLabel = styled("label")(({ theme, isSmallScreen }) => ({
-  fontSize: isSmallScreen ? 10 : 12,
-  marginLeft: 16,
-  fontWeight: 600,
-  color: `1px solid ${colors[theme].textColorPrimary}`,
-  ...noSelect,
-}));
-
 const StyledTextField = styled("input")(({ theme }) => ({
-  padding: "4px 16px",
+  padding: "6px 12px",
+  width: 360,
   border: `1px solid ${colors[theme].borderHighContrast}`,
   borderRadius: "2rem",
 }));

@@ -18,7 +18,7 @@ const Viewer = styled(Box)(({ isSmallScreen }) => {
     width: "100%",
     height: isSmallScreen ? "100%" : "auto",
     overflowY: isSmallScreen ? "auto" : "hidden",
-    overflowX: "auto",
+    overflowX: isSmallScreen ? "auto" : "scroll",
     scrollSnapType: "both mandatory",
     scrollBehavior: "smooth",
     padding: isSmallScreen ? 0 : "0 0 52px 0",

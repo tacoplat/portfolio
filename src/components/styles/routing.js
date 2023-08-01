@@ -4,6 +4,7 @@ export const linkStyling = ({ theme }) => ({
   a: {
     color: colors[theme].textColorSecondary,
     textDecoration: "none",
+    fontWeight: 600,
     "& .MuiTypography-body1": {
       fontWeight: 600,
       "&:hover": {

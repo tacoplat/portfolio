@@ -12,6 +12,10 @@ import { MainContent } from "@/components/styles/common";
 import { colors } from "@/components/styles/colors";
 import DownloadIcon from "@mui/icons-material/Download";
 import RedoIcon from "@mui/icons-material/Redo";
+import {
+  ActionWrapperBase,
+  StyledButton,
+} from "@/components/contactForm/formComponents";
 
 const ExperienceWrapper = styled(Box)(({ isSmallScreen }) => {
   const defaultStyles = {
@@ -29,25 +33,10 @@ const ExperienceWrapper = styled(Box)(({ isSmallScreen }) => {
   return { ...defaultStyles };
 });
 
-const ActionWrapper = styled(Box)({
-  display: "flex",
+const ActionWrapper = styled(ActionWrapperBase)({
   justifyContent: "center",
   flexFlow: "row wrap",
-  columnGap: 16,
-  rowGap: 8,
 });
-
-const StyledButton = styled(Button)(({ theme }) => ({
-  color: colors[theme].textColorPrimaryInverted,
-  backgroundColor: colors[theme].backgroundInverted,
-  borderRadius: "2rem",
-  padding: "4px 16px",
-  textTransform: "none",
-  "&:hover": {
-    backgroundColor: colors[theme].backgroundInverted,
-    color: colors[theme].textColorSecondaryInverted,
-  },
-}));
 
 const JumpToWrapper = styled(Box)(({ theme, isSmallScreen }) => ({
   display: "flex",

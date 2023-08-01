@@ -5,6 +5,7 @@ import { GlobalPortfolioContext } from "@/components/global/GlobalPortfolioConte
 import CurrentRouteBreadcrumbs from "@/components/routing/CurrentRouteBreadcrumbs";
 import { LandingText } from "@/components/styles/typography";
 import { MainContent } from "@/components/styles/common";
+import ContactForm from "@/components/contactForm/ContactForm";
 
 export default function About() {
   const { isSmallScreen, theme } = useContext(GlobalPortfolioContext);
@@ -15,6 +16,7 @@ export default function About() {
       <LandingText variant="h5" isSmallScreen={isSmallScreen}>
         Questions or concerns? Let me know.
       </LandingText>
+      <ContactForm />
     </MainContent>
   );
 }

@@ -11,13 +11,14 @@ import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 
 export const StyledBox = styled(Box)(({ theme }) => ({
-  height: "100vh",
-  width: "100vw",
+  maxHeight: "100vh",
+  maxWidth: "100vw",
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
   backgroundColor: colors[theme].background,
   color: colors[theme].textColorPrimary,
+  overflow: "clip",
 }));
 
 const UtilityContainer = styled(Box)({
@@ -42,9 +43,7 @@ const IconLinkWrapper = styled("a")(({ theme }) => ({
 
 export default function RootContainer({ children }) {
   const [dark, setDark] = useState(false);
-  const [screenWidth, setScreenWidth] = useState(
-window.innerWidth
-  );
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
   const [educationItems, setEducationItems] = useState([]);
   const [workItems, setWorkItems] = useState([]);
   const [volunteerItems, setVolunteerItems] = useState([]);
