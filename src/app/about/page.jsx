@@ -4,7 +4,7 @@ import { useContext } from "react";
 import { GlobalPortfolioContext } from "@/components/global/GlobalPortfolioContext";
 import CurrentRouteBreadcrumbs from "@/components/routing/CurrentRouteBreadcrumbs";
 import { LandingText } from "@/components/styles/typography";
-import { MainContent } from "@/components/styles/common";
+import { MainContent } from "@/components/global/common";
 import { Box, Typography } from "@mui/material";
 import styled from "@emotion/styled";
 import Link from "next/link";
@@ -14,11 +14,14 @@ const Blurb = styled(Box)(({ isSmallScreen, theme }) => ({
   display: "flex",
   flexDirection: "column",
   rowGap: 20,
-  height: isSmallScreen ? 600 : "auto",
-  width: isSmallScreen ? "80%" : "100%",
+  height: isSmallScreen ? "70%" : "auto",
+  maxWidth: "100%",
   maxWidth: 800,
-  overflow: "auto",
+  padding: isSmallScreen ? "0 2rem" : 0,
+  overflowY: "auto",
+  overflowX: "clip",
   ...linkStyling({ theme }),
+  marginBottom: 64,
 }));
 
 export default function About() {
@@ -27,9 +30,23 @@ export default function About() {
   return (
     <MainContent isSmallScreen={isSmallScreen}>
       <CurrentRouteBreadcrumbs theme={theme} />
-      <LandingText variant="h5">A little bit about me.</LandingText>
+      <LandingText isSmallScreen={isSmallScreen} variant="h5">
+        A little bit about me.
+      </LandingText>
       <Blurb isSmallScreen={isSmallScreen} theme={theme}>
         <Typography variant="body1">Hey, I'm Andy!</Typography>
+        {isSmallScreen ? (
+          <Box
+            sx={{
+              minHeight: 300,
+              width: "100%",
+              maxWidth: 300,
+              border: "1px solid black",
+            }}
+          >
+            Placeholder image
+          </Box>
+        ) : null}
         <Typography variant="body1">
           I'm a Mechatronics Engineering student at the University of Waterloo.
           Although I've primarily worked in software development, I also enjoy

@@ -13,6 +13,8 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 export const StyledBox = styled(Box)(({ theme }) => ({
   maxHeight: "100vh",
   maxWidth: "100vw",
+  height: "100vh",
+  width: "100vw",
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
@@ -43,7 +45,7 @@ const IconLinkWrapper = styled("a")(({ theme }) => ({
 
 export default function RootContainer({ children }) {
   const [dark, setDark] = useState(false);
-  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+  const [screenWidth, setScreenWidth] = useState(0);
   const [educationItems, setEducationItems] = useState([]);
   const [workItems, setWorkItems] = useState([]);
   const [volunteerItems, setVolunteerItems] = useState([]);
@@ -57,6 +59,7 @@ export default function RootContainer({ children }) {
   };
 
   useEffect(() => {
+    setScreenWidth(window.innerWidth);
     window.addEventListener("resize", handleResize);
     setEducationItems(education.reverse());
     setWorkItems(work.reverse());

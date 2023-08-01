@@ -39,7 +39,14 @@ export const formatDate = (dateString) => {
   if (dateString === "ongoing") return dateString;
   const parsed = dateString.split(" ");
   const segments = parsed[0].split("-");
-  return `${monthMapping[segments[1]].short} ${segments[0]} ${
-    parsed[1] ? parsed[1] : ""
+  return `${monthMapping[segments[1]].short} ${segments[0]}${
+    parsed[1] ? ` ${parsed[1]}` : ""
   }`;
+};
+
+export const formatProjectsQuantity = (numProjects) => {
+  if (numProjects > 1) return `${numProjects} projects found`;
+  else if (numProjects === 1) return "1 project found";
+  else if (numProjects === 0) return "";
+  return "Error";
 };

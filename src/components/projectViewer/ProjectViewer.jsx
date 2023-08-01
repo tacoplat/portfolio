@@ -5,7 +5,10 @@ import { Box } from "@mui/material";
 import { projects } from "./mockProjects";
 import ProjectTile from "./ProjectTile";
 import { useContext, useEffect, useRef } from "react";
-import { GlobalPortfolioContext } from "../global/GlobalPortfolioContext";
+import {
+  GlobalPortfolioContext,
+  ProjectViewerContext,
+} from "../global/GlobalPortfolioContext";
 import { scrollbarStyles } from "../styles/utils";
 
 const Viewer = styled(Box)(({ isSmallScreen }) => {
@@ -16,7 +19,7 @@ const Viewer = styled(Box)(({ isSmallScreen }) => {
     columnGap: 64,
     rowGap: 180,
     width: "100%",
-    height: isSmallScreen ? "100%" : "auto",
+    height: isSmallScreen ? "65%" : "auto",
     overflowY: isSmallScreen ? "auto" : "hidden",
     overflowX: isSmallScreen ? "auto" : "scroll",
     scrollSnapType: "both mandatory",
@@ -53,17 +56,23 @@ const filterQueryPredicate = (query, project) => {
   return (
     project.displayName.toLowerCase().includes(queryLower) ||
     `${project.id}`.includes(queryLower) ||
-    project.skills.join("").toLowerCase().includes(queryLower)
+    project.skills.join("").toLowerCase().includes(queryLower) ||
+    project.tags.join("").toLowerCase().includes(queryLower)
   );
 };
 
 export default function ProjectViewer({ projectQuery }) {
   const { isSmallScreen } = useContext(GlobalPortfolioContext);
+  const { setNumResults } = useContext(ProjectViewerContext);
 
   const viewerScroll = useHorizontalScroll([isSmallScreen]);
   const filteredProjects = projects.filter((project) =>
     filterQueryPredicate(projectQuery, project)
   );
+
+  useEffect(() => {
+    setNumResults(filteredProjects.length);
+  }, [filteredProjects]);
 
   return (
     <Viewer

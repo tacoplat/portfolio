@@ -4,7 +4,7 @@ import { useContext } from "react";
 import { GlobalPortfolioContext } from "@/components/global/GlobalPortfolioContext";
 import CurrentRouteBreadcrumbs from "@/components/routing/CurrentRouteBreadcrumbs";
 import { LandingText } from "@/components/styles/typography";
-import { MainContent } from "@/components/styles/common";
+import { MainContent } from "@/components/global/common";
 import ContactForm from "@/components/contactForm/ContactForm";
 
 export default function About() {

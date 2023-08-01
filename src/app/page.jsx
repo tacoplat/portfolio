@@ -4,7 +4,6 @@ import { useContext } from "react";
 import { Box, Typography } from "@mui/material";
 import styled from "@emotion/styled";
 import { GlobalPortfolioContext } from "@/components/global/GlobalPortfolioContext";
-import { colors } from "@/components/styles/colors";
 import { noSelect } from "@/components/styles/utils";
 import RoutingLink from "@/components/routing/RoutingLink";
 import { homePageLinks } from "./links";
@@ -23,7 +22,7 @@ const MainContent = styled(Box)(({ isSmallScreen }) => ({
   },
 }));
 
-const ImageBox = styled(Box)(({ isSmallScreen }) =>
+export const ImageBox = styled(Box)(({ isSmallScreen }) =>
   isSmallScreen
     ? {
         display: "none",

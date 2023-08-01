@@ -13,7 +13,12 @@ import {
 import Image from "next/image";
 import { colors } from "../styles/colors";
 import { useContext } from "react";
-import { GlobalPortfolioContext } from "../global/GlobalPortfolioContext";
+import {
+  GlobalPortfolioContext,
+  ProjectViewerContext,
+} from "../global/GlobalPortfolioContext";
+import { THUMBNAIL_FALLBACK } from "../global/common";
+import { PROJECT_SUMMARY_MODAL_STATES } from "@/app/projects/page";
 
 const StyledCard = styled(Card)(({ theme, isLast, isSmallScreen }) => ({
   width: 260,
@@ -66,20 +71,22 @@ const ChipContainer = styled(Box)({
   rowGap: 6,
   marginTop: 4,
   maxWidth: "100%",
-  height: 42,
+
   overflow: "clip",
 });
 
-const ChipDisplay = ({ project }) => {
+export const ChipDisplay = ({ list, type }) => {
   const { theme } = useContext(GlobalPortfolioContext);
   return (
-    <Box sx={{ marginTop: 0.6 }}>
-      <MadeWithLabel variant="body2" theme={theme}>
-        Made with
-      </MadeWithLabel>
+    <Box>
+      {type === "skills" ? (
+        <MadeWithLabel variant="body2" theme={theme}>
+          Made with
+        </MadeWithLabel>
+      ) : null}
       <ChipContainer>
-        {project.skills.map((skill) => (
-          <StyledChip label={skill} theme={theme}></StyledChip>
+        {list.map((item) => (
+          <StyledChip label={item} theme={theme}></StyledChip>
         ))}
       </ChipContainer>
     </Box>
@@ -91,17 +98,21 @@ const Title = styled(Typography)({
   fontWeight: 600,
 });
 
-const THUMBNAIL_FALLBACK = "/assets/no-thumbnail.png";
-
 export default function ProjectTile({ project, isLast }) {
   const { isSmallScreen, theme } = useContext(GlobalPortfolioContext);
+  const { setLastSelectedProject, setModalState } =
+    useContext(ProjectViewerContext);
 
   return (
     <StyledCard theme={theme} isLast={isLast} isSmallScreen={isSmallScreen}>
       <StyledCardHeader
         theme={theme}
         title={<Title>{project.displayName}</Title>}
-        subheader={<ChipDisplay project={project} />}
+        subheader={<ChipDisplay type="tags" list={project.tags} />}
+        onClick={() => {
+          setLastSelectedProject(project);
+          setModalState(PROJECT_SUMMARY_MODAL_STATES.ACTIVE);
+        }}
       />
       <StyledCardMedia theme={theme}>
         <Image

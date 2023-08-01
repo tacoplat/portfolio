@@ -1,7 +1,6 @@
 "use client";
 
 import styled from "@emotion/styled";
-import { Box } from "@mui/material";
 import { useContext, useState } from "react";
 import { colors } from "../styles/colors";
 import { GlobalPortfolioContext } from "../global/GlobalPortfolioContext";
@@ -19,7 +18,7 @@ const FormWrapper = styled("form")({
   display: "flex",
   flexDirection: "column",
   maxWidth: "100%",
-  gap: 12,
+  gap: "1.2rem",
   width: "70%",
   "div[data-lastpass-icon-root]": {
     display: "none",

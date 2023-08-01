@@ -2,13 +2,13 @@
 
 import { useContext, useState } from "react";
 import styled from "@emotion/styled";
-import { Box, Button } from "@mui/material";
+import { Box } from "@mui/material";
 import { scrollbarStyles } from "@/components/styles/utils";
 import { GlobalPortfolioContext } from "@/components/global/GlobalPortfolioContext";
 import CurrentRouteBreadcrumbs from "@/components/routing/CurrentRouteBreadcrumbs";
 import ExperienceContainer from "@/components/experience/ExperienceContainer";
 import { LandingText } from "@/components/styles/typography";
-import { MainContent } from "@/components/styles/common";
+import { MainContent } from "@/components/global/common";
 import { colors } from "@/components/styles/colors";
 import DownloadIcon from "@mui/icons-material/Download";
 import RedoIcon from "@mui/icons-material/Redo";
@@ -92,6 +92,7 @@ const JumpToActionsSmallScreens = styled(Box)(({ theme }) => ({
   transform: "translateY(2rem)",
   zIndex: 5,
   backgroundColor: colors[theme].background,
+  borderBottom: `1px solid ${colors[theme].borderHighContrast}`,
 }));
 
 export default function Experience() {
@@ -103,7 +104,7 @@ export default function Experience() {
     <MainContent isSmallScreen={isSmallScreen}>
       <CurrentRouteBreadcrumbs theme={theme} />
       <LandingText isSmallScreen={isSmallScreen} variant="h5">
-        Previously {isSmallScreen ? <br /> : null} (or currently) at...
+        Previously (or currently) at...
       </LandingText>
       <Box>
         <ActionWrapper>
