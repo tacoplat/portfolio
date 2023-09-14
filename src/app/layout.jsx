@@ -5,7 +5,7 @@ import RootContainer from "../components/global/RootContainer";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Andy Zhen",
+  title: "Andy Zhen | Portfolio",
   description: "Developer Portfolio",
 };
 
