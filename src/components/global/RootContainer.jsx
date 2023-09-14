@@ -2,13 +2,14 @@
 
 import { useEffect, useMemo, useState } from "react";
 import styled from "@emotion/styled";
-import { Box, SvgIcon } from "@mui/material";
+import { Box } from "@mui/material";
 import { GlobalPortfolioContext } from "./GlobalPortfolioContext";
 import { DarkModeToggle } from "./DarkModeToggle";
 import { colors } from "../styles/colors";
-import { education, volunteer, work } from "../experience/mockExperience";
+import { allExperience } from "../experience/mockExperience";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import { ThemeProvider, createTheme } from "@mui/material";
 
 export const StyledBox = styled(Box)(({ theme }) => ({
   maxHeight: "100vh",
@@ -43,12 +44,16 @@ const IconLinkWrapper = styled("a")(({ theme }) => ({
   },
 }));
 
+const muiTheme = createTheme({
+  typography: {
+    fontFamily: "Helvetica, sans-serif",
+  },
+});
+
 export default function RootContainer({ children }) {
   const [dark, setDark] = useState(false);
   const [screenWidth, setScreenWidth] = useState(0);
-  const [educationItems, setEducationItems] = useState([]);
-  const [workItems, setWorkItems] = useState([]);
-  const [volunteerItems, setVolunteerItems] = useState([]);
+  const [experience, setExperience] = useState([]);
 
   const handleResize = () => {
     setScreenWidth(window.innerWidth);
@@ -61,9 +66,7 @@ export default function RootContainer({ children }) {
   useEffect(() => {
     setScreenWidth(window.innerWidth);
     window.addEventListener("resize", handleResize);
-    setEducationItems(education.reverse());
-    setWorkItems(work.reverse());
-    setVolunteerItems(volunteer.reverse());
+    setExperience(allExperience);
     return () => {
       window.removeEventListener("resize", handleResize);
     };
@@ -76,27 +79,30 @@ export default function RootContainer({ children }) {
     () => ({
       isSmallScreen,
       theme,
-      educationItems,
-      workItems,
-      volunteerItems,
+      experience,
     }),
-    [dark, screenWidth, educationItems, workItems, volunteerItems]
+    [dark, screenWidth, experience]
   );
 
   return (
-    <GlobalPortfolioContext.Provider value={contextValues}>
-      <StyledBox theme={theme}>
-        <UtilityContainer>
-          <DarkModeToggle theme={theme} onClick={toggleTheme} />
-          <IconLinkWrapper theme={theme} href="https://github.com/tacoplat/">
-            <GitHubIcon />
-          </IconLinkWrapper>
-          <IconLinkWrapper theme={theme} href="https://linkedin.com/in/a3zhen">
-            <LinkedInIcon />
-          </IconLinkWrapper>
-        </UtilityContainer>
-        {children}
-      </StyledBox>
-    </GlobalPortfolioContext.Provider>
+    <ThemeProvider theme={muiTheme}>
+      <GlobalPortfolioContext.Provider value={contextValues}>
+        <StyledBox theme={theme}>
+          <UtilityContainer>
+            <DarkModeToggle theme={theme} onClick={toggleTheme} />
+            <IconLinkWrapper theme={theme} href="https://github.com/tacoplat/">
+              <GitHubIcon />
+            </IconLinkWrapper>
+            <IconLinkWrapper
+              theme={theme}
+              href="https://linkedin.com/in/a3zhen"
+            >
+              <LinkedInIcon />
+            </IconLinkWrapper>
+          </UtilityContainer>
+          {children}
+        </StyledBox>
+      </GlobalPortfolioContext.Provider>
+    </ThemeProvider>
   );
 }

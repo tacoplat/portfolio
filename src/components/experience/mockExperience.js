@@ -1,4 +1,4 @@
-export const education = [
+const education = [
   {
     organization: "University of Waterloo",
     name: "Candidate for B.A.Sc. in Mechatronics Engineering",
@@ -10,7 +10,7 @@ export const education = [
   },
 ];
 
-export const work = [
+const work = [
   {
     organization: "i4i Inc.",
     name: "Software Quality Analyst",
@@ -49,6 +49,9 @@ export const volunteer = [
     thumbnail:
       "https://media.licdn.com/dms/image/C4D0BAQGVuOzZy7LpZg/company-logo_200_200/0/1581532690790?e=2147483647&v=beta&t=pcNjSXGDBqPGUoTaO2xKRSI38eQyKs6eutuMEQ2r0Pc",
   },
+];
+
+export const extracurricular = [
   {
     organization: "Waterloop",
     name: "Electrical Designer",
@@ -57,5 +60,28 @@ export const volunteer = [
     end: "ongoing",
     thumbnail:
       "https://media.licdn.com/dms/image/C4D0BAQGXG-tUSEqdnA/company-logo_200_200/0/1647473206302?e=2147483647&v=beta&t=as2Mzf5Izg3aG37nEeeM_84brE5aQhUxTyRckd1Jhus",
+  },
+];
+
+export const allExperience = [
+  {
+    heading: "Education",
+    id: "education",
+    items: education,
+  },
+  {
+    heading: "Work",
+    id: "work",
+    items: work,
+  },
+  {
+    heading: "Extracurricular",
+    id: "extracurricular",
+    items: extracurricular,
+  },
+  {
+    heading: "Volunteering",
+    id: "volunteering",
+    items: volunteer,
   },
 ];

@@ -19,6 +19,7 @@ const MainContent = styled(Box)(({ isSmallScreen }) => ({
   gap: isSmallScreen ? 46 : 36,
   "& .MuiTypography-root": {
     ...noSelect,
+    fontWeight: 500,
   },
 }));
 
@@ -30,7 +31,6 @@ export const ImageBox = styled(Box)(({ isSmallScreen }) =>
     : {
         width: 200,
         height: 250,
-        border: "1px solid black",
       }
 );
 
@@ -49,7 +49,7 @@ export default function Home() {
 
   return (
     <MainContent isSmallScreen={isSmallScreen}>
-      <ImageBox isSmallScreen={isSmallScreen}>Image Placeholder</ImageBox>
+      <ImageBox isSmallScreen={isSmallScreen}></ImageBox>
       <Typography variant="h1" align={isSmallScreen ? "center" : "left"}>
         Andy Zhen
       </Typography>

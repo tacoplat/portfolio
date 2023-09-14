@@ -96,8 +96,9 @@ const JumpToActionsSmallScreens = styled(Box)(({ theme }) => ({
 }));
 
 export default function Experience() {
-  const { isSmallScreen, theme, educationItems, workItems, volunteerItems } =
-    useContext(GlobalPortfolioContext);
+  const { isSmallScreen, theme, experience } = useContext(
+    GlobalPortfolioContext
+  );
   const [jumpToActive, setJumpToActive] = useState(false);
 
   return (
@@ -128,29 +129,29 @@ export default function Experience() {
             </StyledButton>
             {jumpToActive && !isSmallScreen ? (
               <JumpToActions theme={theme}>
-                <a href="#education">Education</a>
-                <a href="#work">Work</a>
-                <a href="#volunteering">Volunteering</a>
+                {experience.map((section) => (
+                  <a href={`#${section.id}`}>{section.heading}</a>
+                ))}
               </JumpToActions>
             ) : null}
           </JumpToWrapper>
           {jumpToActive && isSmallScreen ? (
             <JumpToActionsSmallScreens theme={theme}>
-              <a href="#education">Education</a>
-              <a href="#work">Work</a>
-              <a href="#volunteering">Volunteering</a>
+              {experience.map((section) => (
+                <a href={`#${section.id}`}>{section.heading}</a>
+              ))}
             </JumpToActionsSmallScreens>
           ) : null}
         </ActionWrapper>
       </Box>
       <ExperienceWrapper>
-        <ExperienceContainer heading={"Education"} items={educationItems} />
-        <ExperienceContainer heading={"Work"} items={workItems} />
-        <ExperienceContainer
-          heading={"Volunteering & Extracurricular"}
-          items={volunteerItems}
-          isLast
-        />
+        {experience.map((section, index) => (
+          <ExperienceContainer
+            heading={section.heading}
+            items={section.items.sort((a, b) => (a.start > b.start ? -1 : 1))}
+            isLast={index === experience.length - 1}
+          />
+        ))}
       </ExperienceWrapper>
     </MainContent>
   );

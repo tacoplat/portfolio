@@ -20,8 +20,8 @@ const Blurb = styled(Box)(({ isSmallScreen, theme }) => ({
   padding: isSmallScreen ? "0 2rem" : 0,
   overflowY: "auto",
   overflowX: "clip",
-  ...linkStyling({ theme }),
   marginBottom: 64,
+  ...linkStyling({ theme }),
 }));
 
 export default function About() {
@@ -49,23 +49,22 @@ export default function About() {
         ) : null}
         <Typography variant="body1">
           I'm a Mechatronics Engineering student at the University of Waterloo.
-          Although I've primarily worked in software development, I also enjoy
-          doing hobby projects that involve mechanical work. In my free time, I
-          like lifting weights, hiking, and playing computer games.
+          Although I've primarily worked in software development, I'm currently
+          learning the everything I need to build a comprehensive
+          electro-mechanical system (think robots). In my free time, I like
+          lifting weights, hiking, and gaming.
         </Typography>
         <Typography variant="body1">
-          I have about 3 years of experience in the realm of software
-          development and I've worked with a variety of languages such as{" "}
-          <b>JavaScript</b> (incl. Node), <b>Python</b>, <b>PHP</b>, <b>Java</b>
-          , and <b>C++</b>. I also have proficiency using frameworks and
-          libraries such as <b>React</b>, <b>JavaFX</b>, and the <b>AWS SDK</b>.
-          Regardless of what's thrown at me, I do my best to adapt.
+          I've worked with a variety of languages such as <b>JavaScript</b>,{" "}
+          <b>Python</b>, <b>PHP</b>, <b>Java</b>, <b>C</b>, and <b>C++</b> in a
+          variety of fields from full-stack web development to low-level
+          hardware. I also have proficiency using frameworks and libraries such
+          as <b>React</b>, <b>JavaFX</b>, and the <b>AWS SDK</b>. Regardless of
+          what's thrown at me, I do my best to adapt.
         </Typography>
         <Typography variant="body1">
-          Most recently, I have been involved in full stack development, with an
-          emphasis on React front-ends. If you'd like to see some of my work,
-          feel free to check out the <Link href="/projects">Projects</Link>{" "}
-          page.
+          If you'd like to see some of my work, feel free to check out the{" "}
+          <Link href="/projects">Projects</Link> page.
         </Typography>
       </Blurb>
     </MainContent>

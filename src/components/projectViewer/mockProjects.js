@@ -49,17 +49,6 @@ export const projects = [
   },
 
   {
-    name: "course-tracker",
-    displayName: "Course Tracker",
-    id: 4,
-    tags: ["Front-end", "Web"],
-    skills: ["React", "NextJS", "Material UI"],
-    img: "",
-    description:
-      "Simple react app to keep track of deliverables and course progress.",
-  },
-
-  {
     name: "led-sign",
     displayName: "Acrylic LED Sign",
     id: 5,
@@ -92,3 +81,16 @@ export const projects = [
     ],
   },
 ];
+
+/*
+WIP: 
+{
+  name: "course-tracker",
+  displayName: "Course Tracker",
+  id: 4,
+  tags: ["Front-end", "Web"],
+  skills: ["React", "NextJS", "Material UI"],
+  img: "",
+  description:
+    "Simple react app to keep track of deliverables and course progress.",
+}, */

@@ -11,8 +11,12 @@ export const homePageLinks = [
     displayName: "Experience",
     href: "/experience",
   },
-  {
-    displayName: "Contact",
-    href: "/contact",
-  },
 ];
+
+/*
+WIP: 
+{
+  displayName: "Contact",
+  href: "/contact",
+}
+*/
