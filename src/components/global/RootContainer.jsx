@@ -52,7 +52,7 @@ const muiTheme = createTheme({
 
 export default function RootContainer({ children }) {
   const [dark, setDark] = useState(false);
-  const [screenWidth, setScreenWidth] = useState(0);
+  const [screenWidth, setScreenWidth] = useState(1000);
   const [experience, setExperience] = useState([]);
 
   const handleResize = () => {

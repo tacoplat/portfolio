@@ -3,7 +3,7 @@ import { Box } from "@mui/material";
 import { noSelect } from "../styles/utils";
 
 export const MainContent = styled(Box)(({ isSmallScreen }) => ({
-  height: isSmallScreen ? 640 : 800,
+  height: isSmallScreen ? "90%" : 800,
   width: isSmallScreen ? "100%" : "60%",
   display: "flex",
   flexDirection: "column",

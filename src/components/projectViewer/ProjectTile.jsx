@@ -21,7 +21,8 @@ import { THUMBNAIL_FALLBACK } from "../global/common";
 import { PROJECT_SUMMARY_MODAL_STATES } from "@/app/projects/page";
 
 const StyledCard = styled(Card)(({ theme, isLast, isSmallScreen }) => ({
-  width: 260,
+  width: isSmallScreen ? "75%" : 260,
+  height: isSmallScreen ? "80%" : "auto",
   minWidth: 260,
   borderRadius: "1.2rem",
   boxShadow: "none",
@@ -29,8 +30,8 @@ const StyledCard = styled(Card)(({ theme, isLast, isSmallScreen }) => ({
   border: `1px solid ${colors[theme].borderHighContrast}`,
   backgroundColor: colors[theme].background,
   scrollSnapAlign: "start",
-  marginRight: isLast && !isSmallScreen ? "68rem" : 0,
-  marginBottom: isLast && isSmallScreen ? "68rem" : 0,
+  marginRight: isLast && !isSmallScreen ? "100%" : 0,
+  marginBottom: isLast && isSmallScreen ? "100%" : 0,
   flexShrink: 0,
 }));
 
@@ -71,7 +72,6 @@ const ChipContainer = styled(Box)({
   rowGap: 6,
   marginTop: 4,
   maxWidth: "100%",
-
   overflow: "clip",
 });
 
