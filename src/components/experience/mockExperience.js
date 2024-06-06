@@ -33,9 +33,18 @@ const work = [
     name: "Full Stack Developer Co-op",
     location: "Toronto, ON (Remote)",
     start: "2023-05",
-    end: "ongoing",
+    end: "2023-08",
     thumbnail:
       "https://media.licdn.com/dms/image/C4E0BAQGJE-OMEKrPcw/company-logo_200_200/0/1610752254226?e=2147483647&v=beta&t=sv69e-g14WhpvElVn3PmpuF30_ifydl4YMWfkKqFlwc",
+  },
+  {
+    organization: "Vivid Seats LLC",
+    name: "Web Engineering Co-op, SEO",
+    location: "Toronto, ON (Remote)",
+    start: "2024-01",
+    end: "ongoing",
+    thumbnail:
+      "https://media.licdn.com/dms/image/D4E0BAQGRtQaT9pgmjw/company-logo_200_200/0/1688582114918/vividseats_logo?e=2147483647&v=beta&t=3P-NwrxUNzO_-HZn3rWwQuqdQzMhUTXjxHOgwSu7kH4",
   },
 ];
 

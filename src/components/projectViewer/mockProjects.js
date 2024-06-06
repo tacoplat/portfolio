@@ -3,8 +3,8 @@ export const projects = [
     name: "portfolio",
     displayName: "Developer Portfolio",
     id: 1,
-    tags: ["Full-stack", "Web"],
-    skills: ["React", "NextJS", "Material UI", "MongoDB"],
+    tags: ["Front-end", "Web"],
+    skills: ["React", "NextJS", "Material UI"],
     img: "/assets/portfolio.png",
     completionDate: "2023-08",
     description:
@@ -12,14 +12,33 @@ export const projects = [
     extendedDescription:
       "Front-end created using React, pages and API endpoints served by NextJS 13.",
     links: [
-      { label: "View Project", href: "http://localhost:3000/" },
+      { label: "View Project", href: "https://andyzhen.com/" },
       { label: "GitHub", href: "https://github.com/tacoplat/portfolio" },
+    ],
+  },
+  {
+    name: "discograph",
+    displayName: "DISCOGRAPH",
+    id: 2,
+    tags: ["Front-end", "Back-end"],
+    skills: ["React", "Spotify API"],
+    img: "/assets/record.png",
+    completionDate: "2023-10",
+    description: "Spotify top track visualization w/ CSS animations.",
+    extendedDescription:
+      "Clicking records finds a song using Spotify's recommendation API. Unfortunately inaccessible to the public due to Spotify API access restrictions.",
+    links: [
+      {
+        label: "View Project",
+        href: "https://discograph-frontend-cpdzvalsy-tacoplat.vercel.app/",
+      },
+      { label: "GitHub", href: "https://github.com/tacoplat/discograph" },
     ],
   },
   {
     name: "tetris",
     displayName: "Tetris Clone",
-    id: 2,
+    id: 3,
     tags: ["Software", "Game Development"],
     skills: ["Java", "JavaFX", "Scenebuilder"],
     img: "/assets/squarium-small.png",
@@ -37,7 +56,7 @@ export const projects = [
   {
     name: "cage-discord-bot",
     displayName: "CAGE Discord Bot",
-    id: 3,
+    id: 4,
     tags: ["Back-end"],
     skills: ["Node", "Discord.js"],
     img: "/assets/cage-bot.png",
@@ -47,7 +66,6 @@ export const projects = [
     extendedDescription:
       "Functionality includes silly voice channel soundboard, reaction commands, external link to the undergraduate calendar, role headcounts, and other novelty features. ",
   },
-
   {
     name: "led-sign",
     displayName: "Acrylic LED Sign",

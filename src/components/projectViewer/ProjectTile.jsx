@@ -43,10 +43,13 @@ const StyledCardHeader = styled(CardHeader)(({ theme }) => ({
   },
 }));
 
-const StyledCardMedia = styled(CardMedia)(({ theme }) => ({
+const StyledCardMedia = styled(CardMedia)(({ theme, isSmallScreen }) => ({
   display: "flex",
   justifyContent: "center",
   borderTop: `1px solid ${colors[theme].borderHighContrast}`,
+  borderBottom: isSmallScreen
+    ? `1px solid ${colors[theme].borderHighContrast}`
+    : "none",
 }));
 
 const MadeWithLabel = styled(Typography)(({ theme }) => ({
@@ -114,7 +117,7 @@ export default function ProjectTile({ project, isLast }) {
           setModalState(PROJECT_SUMMARY_MODAL_STATES.ACTIVE);
         }}
       />
-      <StyledCardMedia theme={theme}>
+      <StyledCardMedia theme={theme} isSmallScreen={isSmallScreen}>
         <Image
           src={project.img || THUMBNAIL_FALLBACK}
           width={260}
